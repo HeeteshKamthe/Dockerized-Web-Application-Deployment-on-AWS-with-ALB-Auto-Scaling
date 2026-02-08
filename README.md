@@ -68,7 +68,7 @@ Developed a simple frontend and backend application with database connectivity.
 
 ### Database Connection
 Application connects to MySQL using environment variables stored in .env file:
-```
+```env
 DB_HOST
 DB_USER
 DB_PASSWORD
