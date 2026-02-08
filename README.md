@@ -33,7 +33,7 @@ Docker Containers
  |__app/
  |   |
  |   |-index.html
- |   |-submit.html
+ |   |-submit.php
  |   
  |__nginx/
  |   |
