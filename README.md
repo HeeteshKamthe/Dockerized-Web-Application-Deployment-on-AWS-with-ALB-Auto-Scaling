@@ -66,9 +66,21 @@ Developed a simple frontend and backend application with database connectivity.
 - Data stored in MySQL database
 - Successful database connection established
 
+### Steps:
+
+- Initially I setup the application on AWS EC2(Ubuntu)  by manually installing all the required services like Nginx, PHP, PHP-FPM and MysSQL.
+
+- used the AWS free tier t2.micro server for cost optimization.
+
+- Developed the frontend using index.html and implemented backend functionality using submit.php.
+
+- Deployed and tested the application locally to ensure proper functionality and successful browser execution. 
+
+- also used .env configuration file to store the environment variables so that changes in database configuration can be done easily without making any changes in source code.
+
 ### Database Connection
 Application connects to MySQL using environment variables stored in .env file:
-```env
+```
 DB_HOST
 DB_USER
 DB_PASSWORD
@@ -76,7 +88,9 @@ DB_DATABASE
 MYSQL_PASSWORD
 
 ```
-used .env file to store the environment variables so that changes in database configuration can be done easily without making any changes in code.
+### Screenshots:
+* Configurations for launching an AWS EC2 instance:
+ <p align="center"> <img src="images/ec2 launch.jpg" alt="ec2 launch" width="800"/> </p>
 
----
-
+* Launched an EC2 instance:
+ <p align="center"> <img src="images/launched an instance.jpg" alt="terraform output" width="800"/> </p>
