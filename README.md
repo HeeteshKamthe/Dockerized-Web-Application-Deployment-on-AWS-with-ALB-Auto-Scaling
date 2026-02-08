@@ -162,13 +162,20 @@ Deploy containerized application on AWS.
 3. Copied project files to EC2
 4. Started containers:
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 5. Verified application locally:
 ```bash
 curl localhost
 ```
+
+### Screenshots:
+* Docker Compose Builds 3 Containers(Nginx, PHP-FPM, MySQL):
+<p align="center"> <img src="images/docker compose build.jpg" alt="Docker compose build" width="800"/> </p>
+
+* Docker Container restarts after rebooting:
+<p align="center"> <img src="images/docker containers restarts after rebooting.jpg" alt="docker restart" width="800"/> </p>
 
 ---
 
@@ -183,7 +190,13 @@ Example:
 
 http://<EC2-Public-IP>
 
+### Screenshots:
+* Accessing the Dockerized app using EC2 Public IP:
+<p align="center"> <img src="images/form page using docker.jpg" alt="Access dockerized app" width="800"/> </p>
+<p align="center"> <img src="images/new record created using docker.jpg" alt="Access dockerized app" width="800"/> </p>
 
+* Checking the MySQL container Connectivity by ensuring records are entered in database:
+<p align="center"> <img src="images/mysql container database check.jpg" alt="check mysql container" width="800"/> </p>
 ---
 
 ## 5. Load Balancer & Auto Scaling
@@ -210,6 +223,23 @@ http://<EC2-Public-IP>
 
 When CPU usage exceeds threshold, new instance launches automatically.
 
+### Auto Scaling Testing (CPU Load Simulation)
+
+- To verify Auto Scaling functionality, CPU load was artificially generated using the **stress** tool.
+
+Installation:
+```bash
+sudo apt install stress -y
+```
+
+CPU load generation:
+```bash
+stress --cpu 2 --timeout 300
+```
+
+- This increased CPU utilization above the configured threshold, triggering Auto Scaling to launch additional EC2 instances automatically.
+
+
 ### Screenshots:
 
 * Create AMI from Dockerized App Instance:
@@ -227,9 +257,32 @@ When CPU usage exceeds threshold, new instance launches automatically.
  <p align="center"> <img src="images/creating LB 3.jpg" alt="creating LB" width="800"/> </p>
  <p align="center"> <img src="images/LB created.jpg" alt="created LB" width="800"/> </p>
 
-* Verifying ALB DNS Working:
+* Verify ALB DNS Working on Browser:
 <p align="center"> <img src="images/ALB DNS working.jpg" alt="creating LB" width="800"/> </p>
 
+* Create Launch Template for Auto Scaling Group:
+<p align="center"> <img src="images/creating LT.jpg" alt="creating LT" width="800"/> </p>
+<p align="center"> <img src="images/created LT.jpg" alt="created LT" width="800"/> </p>
+
+* Create Auto Scaling Group:
+<p align="center"> <img src="images/Creating ASG 1.jpg" alt="creating ASG" width="800"/> </p>
+<p align="center"> <img src="images/Creating asg 2.png" alt="creating ASG" width="800"/> </p>
+<p align="center"> <img src="images/Creating asg 3.png" alt="creating ASG" width="800"/> </p>
+<p align="center"> <img src="images/creating asg 4.png" alt="creating ASG" width="800"/> </p>
+<p align="center"> <img src="images/Creating ASG 5.jpg" alt="creating ASG" width="800"/> </p>
+<p align="center"> <img src="images/created asg.jpg" alt="created ASG" width="800"/> </p>
+
+* Ensure Desired Instances are Created:
+<p align="center"> <img src="images/desired asg instances created.jpg" alt="Desired instances Created" width="800"/> </p>
+
+* Using Stress Tool to verify Auto Scaling functionality: 
+<p align="center"> <img src="images/using stress to create load on 1 ec2.jpg" alt="Stress tool" width="800"/> </p>
+
+* See the CloudWatch CPU Utilization Graph Exceeding 50% limit:
+<p align="center"> <img src="images/cloudwatch cpu limit graph.png" alt="CPU Utilization Check" width="800"/> </p>
+
+* New Instance launched to fullfill Max limit of ASG:
+<p align="center"> <img src="images/max limit reached.jpg" alt="CPU Utilization Check" width="800"/> </p>
 
 ---
 
