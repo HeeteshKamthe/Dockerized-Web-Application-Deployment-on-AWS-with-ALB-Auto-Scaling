@@ -93,4 +93,4 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/ec2 launch.jpg" alt="ec2 launch" width="800"/> </p>
 
 * Launched an EC2 instance:
- <p align="center"> <img src="images/launched an instance.jpg" alt="terraform output" width="800"/> </p>
+ <p align="center"> <img src="images/launched an instance.png" alt="terraform output" width="800"/> </p>
