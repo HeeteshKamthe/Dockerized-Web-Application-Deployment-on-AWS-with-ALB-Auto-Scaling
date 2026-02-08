@@ -298,8 +298,6 @@ stress --cpu 2 --timeout 300
 
 - Secured the database by not exposing the MySQL port to the public internet, allowing access only from the application server for better security.
 
-- If you want, I can also make this sound more like a DevOps engineer explanation in an interview (more conversational) or a formal documentation version.
-
 ---
 
 ## 7. Troubleshooting:
