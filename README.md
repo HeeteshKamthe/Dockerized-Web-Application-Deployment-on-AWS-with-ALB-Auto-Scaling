@@ -131,7 +131,7 @@ Containerized the application for portability and consistent deployment.
 - Created Dockerfile for PHP application.
 - Configured Nginx as web server.
 - Used MySQL official Docker image.
-- Created docker-compose.yml for multi-container setup to save the time and efforts in making three different images and containers separately.
+- Created docker-compose.yml for multi-container setup.
 
 ### Containers Used
 - nginx
