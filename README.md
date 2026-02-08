@@ -188,7 +188,7 @@ Application accessed using:
 
 Example:
 
-http://<EC2-Public-IP>
+http://`<EC2-Public-IP>`
 
 ### Screenshots:
 * Accessing the Dockerized app using EC2 Public IP:
