@@ -68,7 +68,7 @@ Developed a simple frontend and backend application with database connectivity.
 
 ### Steps:
 
-- Initially I setup the application on AWS EC2(Ubuntu) by manually installing all the required services like Nginx, PHP, PHP-FPM and MysSQL.
+- Initially I setup the application on AWS EC2(Ubuntu) by manually installing all the required services like Nginx, PHP, PHP-FPM and MySQL.
 
 - used the AWS free tier t2.micro server for cost optimization.
 
