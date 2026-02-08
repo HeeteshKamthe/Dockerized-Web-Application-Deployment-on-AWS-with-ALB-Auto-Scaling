@@ -10,19 +10,36 @@
 ---
 
 ## Architecture Overview:
+```
+Users
+↓
+Application Load Balancer (ALB)
+↓
+Auto Scaling Group (EC2 Instances)
+↓
+Docker Containers
+├── Nginx (Web Server)
+├── PHP Backend
+└── MySQL Database
+
+```
+
+---
+
+## Application File Structure:
  ```
- PHP-Nginx-app
+ PHP-Nginx-app/
  |
- |--app
+ |__app/
  |   |
  |   |-index.html
  |   |-submit.html
  |   
- |--nginx
+ |__nginx/
  |   |
  |   |-default.conf
  |
- |--mysql
+ |__mysql/
  |   |
  |   |-init.sql
  |
@@ -31,6 +48,35 @@
  |--.env
 
  ```
+
+---
+
+## 1. Application Setup:
+
+Developed a simple frontend and backend application with database connectivity.
+
+### Technologies Used:
+- Frontend: HTML
+- Backend: PHP
+- Database: MySQL
+
+### Features:
+- Simple HTML registration form
+- Backend processes user input
+- Data stored in MySQL database
+- Successful database connection established
+
+### Database Connection
+Application connects to MySQL using environment variables stored in .env file:
+```
+DB_HOST
+DB_USER
+DB_PASSWORD
+DB_DATABASE
+MYSQL_PASSWORD
+
+```
+used .env file to store the environment variables so that changes in database configuration can be done easily without making any changes in code.
 
 ---
 
