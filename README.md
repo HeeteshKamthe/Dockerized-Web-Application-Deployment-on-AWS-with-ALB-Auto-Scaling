@@ -93,7 +93,6 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/ec2 launch.jpg" alt="ec2 launch" width="800"/> </p>
 
 * Launched an EC2 instance:
-<<<<<<< HEAD
  <p align="center"> <img src="images/launched an instance.png" alt="launched an instance" width="800"/> </p>
 
  * ssh into ec2 instance:
@@ -106,7 +105,7 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/setting inbound rules of sg.png" alt="setting inbound rules of sg" width="800"/> </p> 
 
 * Put the Source Code files in `/var/www/html` folder:
- <p align="center"> <img src="html directory.pngjpg" alt="setting inbound rules of sg" width="800"/> </p> 
+ <p align="center"> <img src="html directory.jpg" alt="setting inbound rules of sg" width="800"/> </p> 
 
 * Check the working of Deployed App on Browser:
  <p align="center"> <img src="images/form page.jpg" alt="Registration form page" width="800"/> </p> 
@@ -119,14 +118,15 @@ MYSQL_PASSWORD
 
 ## 2. Docker Implementation
 
-### Objective
-Containerize the application for portability and consistent deployment.
+Containerized the application for portability and consistent deployment.
 
 ### Tasks Performed
-- Created Dockerfile for PHP application
-- Configured Nginx as web server
-- Used MySQL official Docker image
-- Created docker-compose.yml for multi-container setup
+- Installed and Enabled Docker & Docker Compose on server.
+- If using same EC2 instance as I used, ensure that the running services like Nginx and MySQL are stopped to avoid the port conflicts while using Docker Containers.
+- Created Dockerfile for PHP application.
+- Configured Nginx as web server.
+- Used MySQL official Docker image.
+- Created docker-compose.yml for multi-container setup.
 
 ### Containers Used
 - nginx
@@ -138,7 +138,116 @@ Containerize the application for portability and consistent deployment.
 
 ### Auto Start Configuration
 Containers configured with:
+```json
+restart: always
+```
+This ensures containers automatically start after instance reboot.
 
-=======
- <p align="center"> <img src="images/launched an instance.png" alt="terraform output" width="800"/> </p>
->>>>>>> 31fc0aca98450edbb633264e85af994e94efe98f
+### Benefits
+- Environment consistency
+- Easy deployment
+- Service isolation
+
+---
+
+## 3. AWS EC2 Deployment:
+
+Deploy containerized application on AWS.
+
+### Steps Performed:
+1. Launched EC2 instance
+   - Instance Type: t2.micro / t3.micro (Free Tier eligible)
+   - OS: Ubuntu Server
+2. Installed Docker and Docker Compose
+3. Copied project files to EC2
+4. Started containers:
+
+docker compose up -d
+
+
+5. Verified application locally:
+
+curl localhost
+
+
+---
+
+## 4. Application Access
+
+Application accessed using:
+
+- EC2 Public IP
+- Elastic IP (recommended)
+
+Example:
+
+http://<EC2-Public-IP>
+
+
+---
+
+## 5. Load Balancer & Auto Scaling
+
+### Application Load Balancer (ALB)
+- Internet-facing ALB created
+- Listener configured on port 80
+- Target group created with EC2 instances
+- Health check path set to:
+```
+/
+```
+
+### Auto Scaling Group (ASG)
+- Launch Template created using AMI
+- Minimum instances: 1
+- Desired instances: 2
+- Maximum instances: 3
+
+### Scaling Policy
+- Target tracking scaling policy
+- Metric: Average CPU Utilization
+- Target CPU Utilization: 50%
+
+When CPU usage exceeds threshold, new instance launches automatically.
+
+---
+
+## ✅ 6. Cost Optimization
+
+- Used free-tier eligible instances
+- Minimal resource allocation
+- Auto Scaling prevents over-provisioning
+- Containers reduce infrastructure cost
+- MySQL port not exposed externally
+
+---
+
+## ✅ 7. Troubleshooting
+
+### Issue 1 — Application Not Accessible
+**Cause:** Security group blocking HTTP traffic  
+**Solution:** Allowed inbound port 80.
+
+---
+
+### Issue 2 — Container Running but Port Not Reachable
+**Cause:** Incorrect port mapping or Nginx configuration  
+**Solution:** Corrected Docker and Nginx configuration.
+
+---
+
+### Issue 3 — MySQL Access Denied
+**Cause:** Environment variables not passed correctly  
+**Solution:** Used .env file and verified variables inside container.
+
+---
+
+### Issue 4 — ALB Health Check Failure
+**Cause:** Incorrect health check path or application not running  
+**Solution:** Set health check path to `/` and ensured containers auto-start.
+
+---
+
+### Issue 5 — Port 3306 Already in Use
+**Cause:** Host MySQL service running  
+**Solution:** Stopped host MySQL or removed port exposure.
