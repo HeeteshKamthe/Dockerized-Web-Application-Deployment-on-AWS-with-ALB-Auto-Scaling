@@ -107,7 +107,8 @@ MYSQL_PASSWORD
 * Put the Source Code files in `/var/www/html` folder:
  <p align="center"> <img src="images/html directory.jpg" alt="setting HTML directory " width="800"/> </p>
 
-* Make Changes in Nginx configuration file `default.conf` to pass .php pages request using PHP-FPM socket: 
+* Make Changes in Nginx configuration file `/etc/nginx/sites-available/default` to pass .php pages request using PHP-FPM socket: 
+<p align="center"> <img src="images/nginx config file changes.jpg" alt="making changes in nginx config file" width="800"/> </p>
 
 * Check the working of Deployed App on Browser:
  <p align="center"> <img src="images/form page.jpg" alt="Registration form page" width="800"/> </p> 
