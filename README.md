@@ -176,7 +176,7 @@ curl localhost
 ```
 
 ### Screenshots:
-* Docker Compose Builds 3 Containers(Nginx, PHP-FPM, MySQL):
+* Docker Compose file executed to run 3 Containers (Nginx, PHP-FPM, MySQL) together:
 <p align="center"> <img src="images/docker compose build.jpg" alt="Docker compose build" width="800"/> </p>
 
 * Docker Container restarts after rebooting:
