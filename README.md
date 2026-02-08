@@ -161,14 +161,14 @@ Deploy containerized application on AWS.
 2. Installed Docker and Docker Compose
 3. Copied project files to EC2
 4. Started containers:
-
+```bash
 docker compose up -d
-
+```
 
 5. Verified application locally:
-
+```bash
 curl localhost
-
+```
 
 ---
 
