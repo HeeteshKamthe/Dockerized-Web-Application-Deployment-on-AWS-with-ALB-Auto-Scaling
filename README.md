@@ -9,3 +9,28 @@
 
 ---
 
+## Architecture Overview:
+ ```
+ PHP-Nginx-app
+ |
+ |--app
+ |   |
+ |   |-index.html
+ |   |-submit.html
+ |   
+ |--nginx
+ |   |
+ |   |-default.conf
+ |
+ |--mysql
+ |   |
+ |   |-init.sql
+ |
+ |--Dockerfile
+ |--docker-compose.yml
+ |--.env
+
+ ```
+
+---
+
