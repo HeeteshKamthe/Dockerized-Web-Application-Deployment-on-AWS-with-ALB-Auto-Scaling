@@ -93,6 +93,7 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/ec2 launch.jpg" alt="ec2 launch" width="800"/> </p>
 
 * Launched an EC2 instance:
+<<<<<<< HEAD
  <p align="center"> <img src="images/launched an instance.png" alt="launched an instance" width="800"/> </p>
 
  * ssh into ec2 instance:
@@ -138,3 +139,6 @@ Containerize the application for portability and consistent deployment.
 ### Auto Start Configuration
 Containers configured with:
 
+=======
+ <p align="center"> <img src="images/launched an instance.png" alt="terraform output" width="800"/> </p>
+>>>>>>> 31fc0aca98450edbb633264e85af994e94efe98f
