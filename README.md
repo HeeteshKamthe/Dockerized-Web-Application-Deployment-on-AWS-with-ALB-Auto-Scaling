@@ -105,7 +105,7 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/setting inbound rules of sg.png" alt="setting inbound rules of sg" width="800"/> </p> 
 
 * Put the Source Code files in `/var/www/html` folder:
- <p align="center"> <img src="html directory.jpg" alt="setting inbound rules of sg" width="800"/> </p> 
+ <p align="center"> <img src="images/html directory.jpg" alt="setting HTML directory " width="800"/> </p> 
 
 * Check the working of Deployed App on Browser:
  <p align="center"> <img src="images/form page.jpg" alt="Registration form page" width="800"/> </p> 
