@@ -68,7 +68,7 @@ Developed a simple frontend and backend application with database connectivity.
 
 ### Steps:
 
-- Initially I setup the application on AWS EC2(Ubuntu)  by manually installing all the required services like Nginx, PHP, PHP-FPM and MysSQL.
+- Initially I setup the application on AWS EC2(Ubuntu) by manually installing all the required services like Nginx, PHP, PHP-FPM and MysSQL.
 
 - used the AWS free tier t2.micro server for cost optimization.
 
@@ -96,7 +96,7 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/launched an instance.png" alt="launched an instance" width="800"/> </p>
 
  * ssh into ec2 instance:
- <p align="center"> <img src="images/ssh.jpg" alt="ssh into ec2 instance" width="800"/> </p>
+ <p align="center"> <img src="images/ssh .jpg" alt="ssh into ec2 instance" width="800"/> </p>
 
  * Installed Required Services:
  <p align="center"> <img src="images/installing services.jpg" alt="installing services" width="800"/> </p>
@@ -210,19 +210,46 @@ http://<EC2-Public-IP>
 
 When CPU usage exceeds threshold, new instance launches automatically.
 
+### Screenshots:
+
+* Create AMI from Dockerized App Instance:
+ <p align="center"> <img src="images/creating AMI.jpg" alt="creating AMI" width="800"/> </p> 
+ <p align="center"> <img src="images/AMI created.jpg" alt="AMI created" width="800"/> </p> 
+
+ *Create Target Group for ALB:
+ <p align="center"> <img src="images/create target group 1.jpg" alt="creating Target Group" width="800"/> </p>
+ <p align="center"> <img src="images/create target group 2.jpg" alt="creating Target Group" width="800"/> </p>
+ <p align="center"> <img src="images/created target group .jpg" alt="creating Target Group" width="800"/> </p> 
+
+* Create Application Load Balancer (ALB):
+ <p align="center"> <img src="images/creating LB 1.jpg" alt="creating LB" width="800"/> </p>
+ <p align="center"> <img src="images/creating LB 2.jpg" alt="creating LB" width="800"/> </p>
+ <p align="center"> <img src="images/creating LB 3.jpg" alt="creating LB" width="800"/> </p>
+ <p align="center"> <img src="images/LB created.jpg" alt="created LB" width="800"/> </p>
+
+* Verifying ALB DNS Working:
+<p align="center"> <img src="images/ALB DNS working.jpg" alt="creating LB" width="800"/> </p>
+
+
 ---
 
-## ✅ 6. Cost Optimization
+## 6. Cost Optimization:
 
-- Used free-tier eligible instances
-- Minimal resource allocation
-- Auto Scaling prevents over-provisioning
-- Containers reduce infrastructure cost
-- MySQL port not exposed externally
+- Used AWS free-tier eligible instances to keep the deployment cost low during development and testing.
+
+- Allocated only the required system resources to avoid unnecessary usage and reduce overall infrastructure cost.
+
+- Implemented Auto Scaling, which automatically adjusts resources based on application demand, preventing over-provisioning when traffic is low.
+
+- Used Docker containers to run the application efficiently, helping reduce infrastructure overhead and simplify deployment.
+
+- Secured the database by not exposing the MySQL port to the public internet, allowing access only from the application server for better security.
+
+- If you want, I can also make this sound more like a DevOps engineer explanation in an interview (more conversational) or a formal documentation version.
 
 ---
 
-## ✅ 7. Troubleshooting
+## 7. Troubleshooting:
 
 ### Issue 1 — Application Not Accessible
 **Cause:** Security group blocking HTTP traffic  
@@ -231,23 +258,23 @@ When CPU usage exceeds threshold, new instance launches automatically.
 ---
 
 ### Issue 2 — Container Running but Port Not Reachable
-**Cause:** Incorrect port mapping or Nginx configuration  
-**Solution:** Corrected Docker and Nginx configuration.
+**Cause:** Incorrect port mapping or Nginx configuration. 
+**Solution:** Corrected Docker port mapping and updated Nginx configuration to properly route traffic.
 
 ---
 
 ### Issue 3 — MySQL Access Denied
-**Cause:** Environment variables not passed correctly  
-**Solution:** Used .env file and verified variables inside container.
+**Cause:** Database environment variables were not passed correctly to the container. 
+**Solution:** Configured environment variables using a .env file and verified values inside the running container.
 
 ---
 
 ### Issue 4 — ALB Health Check Failure
 **Cause:** Incorrect health check path or application not running  
-**Solution:** Set health check path to `/` and ensured containers auto-start.
+**Solution:** Updated the health check path to / and ensured containers automatically start on system reboot.
 
 ---
 
 ### Issue 5 — Port 3306 Already in Use
 **Cause:** Host MySQL service running  
-**Solution:** Stopped host MySQL or removed port exposure.
+**Solution:** Stopped the host MySQL service or removed external port exposure from the container.
