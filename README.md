@@ -93,4 +93,48 @@ MYSQL_PASSWORD
  <p align="center"> <img src="images/ec2 launch.jpg" alt="ec2 launch" width="800"/> </p>
 
 * Launched an EC2 instance:
- <p align="center"> <img src="images/launched an instance.jpg" alt="terraform output" width="800"/> </p>
+ <p align="center"> <img src="images/launched an instance.png" alt="launched an instance" width="800"/> </p>
+
+ * ssh into ec2 instance:
+ <p align="center"> <img src="images/ssh.jpg" alt="ssh into ec2 instance" width="800"/> </p>
+
+ * Installed Required Services:
+ <p align="center"> <img src="images/installing services.jpg" alt="installing services" width="800"/> </p>
+
+ * Setup the inbound rules of Security Group of EC2 :
+ <p align="center"> <img src="images/setting inbound rules of sg.png" alt="setting inbound rules of sg" width="800"/> </p> 
+
+* Put the Source Code files in `/var/www/html` folder:
+ <p align="center"> <img src="html directory.pngjpg" alt="setting inbound rules of sg" width="800"/> </p> 
+
+* Check the working of Deployed App on Browser:
+ <p align="center"> <img src="images/form page.jpg" alt="Registration form page" width="800"/> </p> 
+ <p align="center"> <img src="images/new record created manually.jpg" alt="new record created manually" width="800"/> </p> 
+
+* Check Database connectivity on EC2 by checking MySQL database records:
+ <p align="center"> <img src="images/mysql database check.jpg" alt="mysql database check" width="800"/> </p> 
+
+---
+
+## 2. Docker Implementation
+
+### Objective
+Containerize the application for portability and consistent deployment.
+
+### Tasks Performed
+- Created Dockerfile for PHP application
+- Configured Nginx as web server
+- Used MySQL official Docker image
+- Created docker-compose.yml for multi-container setup
+
+### Containers Used
+- nginx
+- php-fpm
+- mysql
+
+### Port Exposure
+- HTTP Port: 80
+
+### Auto Start Configuration
+Containers configured with:
+
