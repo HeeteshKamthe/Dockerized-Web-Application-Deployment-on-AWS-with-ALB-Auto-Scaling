@@ -74,7 +74,7 @@ Developed a simple frontend and backend application with database connectivity.
 
 - Developed the frontend using index.html and implemented backend functionality using submit.php.
 
-- Make Changes in Nginx configuration file `/etc/nginx/sites-available/default` to pass .php pages request using PHP-FPM socket
+- Made Changes in Nginx configuration file `/etc/nginx/sites-available/default` to pass .php pages request using PHP-FPM socket
 
 - Deployed and tested the application locally to ensure proper functionality and successful browser execution. 
 
